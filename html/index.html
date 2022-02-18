@@ -11,19 +11,35 @@
 				<h1 id="institution_name">Animal Clinic</h1>
 			</div>
 			<div id="pages-area">
-				<a id="page-names" href="./home.html"> home</a>
-				<a id="page-names" href="./inventory.html"> inventory</a>
-				<a id="page-names" href="./reports.html"> reports</a>
+				<a id="page-names" href="./home.html">home</a>
+				<a id="page-names" href="./inventory.html">inventory</a>
+				<a id="page-names" href="./reports.html">reports</a>
 			</div>
-			<div id="logout-area"></div>
+			<div id="logout-area">
+				<button id="buton-logout">Logout</button>
+			</div>
 		</div>
 		<div id="bill-panel">
-			<div id="bill-number-area"></div>
+			<div id="bill-number-area">
+				<label id="bill-count">
+					Bill number#
+				</label>
+			</div>
 			<div id="bill-area"></div>
 		</div>
 		<div id="item-panel">
 			<div id="item-filling-area">
-				<div id="item-inventory-area"></div>
+				<div id="item-inventory-area">
+					<form method="get">
+					  <label for="Item">Choose your Item from the Inventory:</label>
+					  <input list="inventory_items" name="Item" id="Item">
+					  <datalist id="inventory_items"></datalist>
+					  <input type="number" name="amount" id="item-count">
+					  <input type="text" name="amount" id="item-amount">
+					  <input type="number" min="0.00" max="100000.00" step="0.01" />
+					  <input type="submit">
+					</form>
+				</div>
 				<div id="item-button-area"></div>
 			</div>
 			<div id="bill-issue-panel"></div>
