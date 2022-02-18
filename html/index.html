@@ -16,7 +16,7 @@
 				<a id="page-names" href="./reports.html">reports</a>
 			</div>
 			<div id="logout-area">
-				<button id="buton-logout">Logout</button>
+				<button type="button" id="buton-logout">Logout</button>
 			</div>
 		</div>
 		<div id="bill-panel">
@@ -25,7 +25,15 @@
 					Bill number#
 				</label>
 			</div>
-			<div id="bill-area"></div>
+			<div id="bill-area">
+				<table border="1px">
+					<tr>
+						<th width="80%">Item</th>
+						<th width="10%">Count</th>
+						<th width="10%">Amount</th>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div id="item-panel">
 			<div id="item-filling-area">
@@ -40,9 +48,15 @@
 					  <input type="submit">
 					</form>
 				</div>
-				<div id="item-button-area"></div>
+				<div id="item-button-area">
+					<button type="button" id="add-to-list-button">Add</button>
+					<button type="button" id="clear-filling-button">Clear</button>
+				</div>
 			</div>
-			<div id="bill-issue-panel"></div>
+			<div id="bill-issue-panel">
+				<button type="button" id="add-to-list-button">Print</button>
+				<button type="button" id="clear-filling-button">Clear All</button>
+			</div>
 		</div>
 	</body>
 </html>
