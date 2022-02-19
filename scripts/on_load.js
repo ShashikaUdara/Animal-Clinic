@@ -1,12 +1,7 @@
-window.onload = function() {
-  loadInventoryItems()
-  {
-    let itemList = getItemList();
-
-    // creating the template
-    let temp = ``;
-  }
-};
+function loadInventoryItems()
+{
+  document.getElementById("inventory_items").innerHTML = getItemList();
+}
 
 function getItemList()
 {
