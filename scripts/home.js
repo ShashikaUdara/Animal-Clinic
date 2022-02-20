@@ -3,6 +3,7 @@
 let itemIndex = 0;
 let billNumber = 0;
 let billTotal = 0;
+let lastBill = "";
 
 const billItemArr = [];
 
@@ -36,7 +37,8 @@ function addToTheBill()
 	let billHeader = `-- Animal Clinic --\n-- Bill Number ${billNumber} --\n\n${("Index").padEnd(5)} ${("Item or Service").padEnd(25)} ${("Count").padEnd(8)} ${("Amount").padEnd(12)}\n`;
 	let billFooter = `\n${("Bill Total").padStart(31)} --- ${(parseFloat(billTotal).toFixed(2)).toString()}\n\n-- ${dateTime} --\nBy NextGEN-Labs - SriLanka`;
 	console.log(billHeader + displayTheBill(itemName, itemCount, itemAmount) + billFooter);
-	document.getElementById("bill-table-div").innerHTML = billHeader + displayTheBill(itemName, itemCount, itemAmount) + billFooter;
+	lastBill = billHeader + displayTheBill(itemName, itemCount, itemAmount) + billFooter;
+	document.getElementById("bill-table-div").value = lastBill;
 	return true;
 }
 
@@ -71,4 +73,56 @@ function clearItemEntry()
 function eraseText() 
 {
     document.getElementById("bill-table-div").value = "";
+    itemIndex = 0;
+    while(billItemArr.length > 0) 
+    {
+	    billItemArr.pop();
+	}
+    console.log(billItemArr)
+}
+
+function printBill()
+{
+	let actionCode = "";
+	if(document.getElementById("bill-table-div").value != "")
+	{
+		if(confirm("Print bill?"))
+		{
+			actionCode = "Printing...";
+		}
+		else
+		{
+			actionCode = "Cancel printing...";
+		}
+	}
+	else
+	{
+		alert("Oops!!!\nBill is empty...");
+	}
+}
+
+function loadLasttBill()
+{
+	console.log(lastBill);
+	document.getElementById("bill-table-div").value = lastBill;
+}
+
+function removeItem()
+{
+	let itemIndex = parseInt(document.getElementById("remove-index").value);
+	console.log(itemIndex);
+
+	// for( let i = 0; i < lastBill.length; i++)
+	// { 
+                                   
+ //        if ( lastBill[i] === itemIndex)
+ //        { 
+ //            lastBill.splice(i, 1); 
+ //            i--; 
+ //        }
+ //        lastBill.splice(i, 1);
+ //    }
+ 	billItemArr.splice(2, 1);
+
+    loadLasttBill();
 }
