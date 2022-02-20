@@ -49,11 +49,11 @@
 					  <br>
 					  <label for="Item" id="count-label">Count:</label>
 					  <br>
-					  <input type="number" name="count" id="item-count">
+					  <input type="number" name="count" min="0" max="1000" id="item-count">
 					  <br>
 					  <label for="Item" id="amount-label">Amount:</label>
 					  <br>
-					  <input type="number" min="0.00" max="100000.00" step="0.01" id="item-amount">
+					  <input type="number" min="0.00" max="1000000.00" step="0.01" id="item-amount">
 					  <!-- <input type="submit"> -->
 					  <!-- <button type="button" id="item-submit-button"></button> -->
 					</form>
@@ -61,7 +61,7 @@
 				<div id="item-button-area">
 					<button type="button" id="add-to-list-button" onclick="addToTheBill()">Add</button>
 					<button type="button" id="clear-filling-button" onclick="clearItemEntry()">Clear</button>
-					<input type="number" name="remove-index" id="remove-index">
+					<input type="number" name="remove-index" min="0" max="1000" id="remove-index">
 					<button type="button" id="remove-item-button" onclick="removeItem()">Remove Select Item</button>
 				</div>
 			</div>
