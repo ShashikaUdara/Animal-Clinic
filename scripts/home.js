@@ -1,7 +1,7 @@
 // add button functionality
 // let billTemplate = "<table><tr>";
 let itemIndex = 0;
-let billNumber = 0;
+let billNumber = 1;
 let billTotal = 0;
 let lastBill = "";
 let name_count_amount = [];
@@ -52,13 +52,16 @@ function removeFromNameCountAmountArray(rIndex)
 	// name_count_amount.splice(rIndex-1, 1);
 	// console.log("------------------- Name Count and Amount: " + name_count_amount[rIndex-1]); 
 
-	for(let x of name_count_amount)
-	{
-		console.log(x);
-	}
+	// for(let x of name_count_amount)
+	// {
+	// 	console.log(x);
+	// }
+
+	console.log("**************** name_count_amount[rIndex-1][2]: " + name_count_amount[rIndex-1][2]);
 
 	// deducting amount from the total
-	// billTotal = billTotal - 
+	billTotal = billTotal - parseFloat(name_count_amount[rIndex-1][2]);
+	itemIndex--;
 	// console.log("temp: " + temp);
 }
 
@@ -67,6 +70,7 @@ function setItemEntryAreaClear()
 	document.getElementById("inventory_items_input").value = "";
 	document.getElementById("item-count").value = "";
 	document.getElementById("item-amount").value = "";
+	document.getElementById("remove-index").value = "";
 }
 
 function showInBillDisplay()
@@ -113,6 +117,7 @@ function clearItemEntry()
 function eraseText() 
 {
     document.getElementById("bill-table-div").value = "";
+    document.getElementById("remove-index").value = "";
  //    itemIndex = 0;
  //    while(billItemArr.length > 0) 
  //    {
@@ -127,6 +132,24 @@ function eraseText()
  //    console.log(billItemArr + " - " + name_count_amount)
 }
 
+function eraseBillDataAfterPrint() 
+{
+    document.getElementById("bill-table-div").value = "";
+    document.getElementById("remove-index").value = "";
+    itemIndex = 0;
+    while(billItemArr.length > 0) 
+    {
+	    billItemArr.pop();
+	}
+
+	while(name_count_amount.length > 0) 
+    {
+	    name_count_amount.pop();
+	}
+	
+    console.log(billItemArr + " - " + name_count_amount)
+}
+
 function printBill()
 {
 	let actionCode = "";
@@ -134,6 +157,8 @@ function printBill()
 	{
 		if(confirm("Print bill?"))
 		{
+			billNumber++;
+			eraseBillDataAfterPrint();
 			actionCode = "Printing...";
 		}
 		else
@@ -165,15 +190,17 @@ function removeItem()
 	if(itemIndex < rmItemIndex || rmItemIndex < 1 || Number.isNaN(rmItemIndex))
 	{
 		alert("No such item in the list");
+		document.getElementById("remove-index").value = "";
 		return false;
 	}
 	else
 	{
+		removeFromNameCountAmountArray(rmItemIndex);
+
 		console.log("billItemArr[rmItemIndex-1]: " + billItemArr[rmItemIndex-1]);
 		billItemArr.splice(rmItemIndex-1, 1);
 		console.log("name_count_amount[rmItemIndex-1]: " + name_count_amount[rmItemIndex-1]);
 		name_count_amount.splice(rmItemIndex-1, 1);
-		removeFromNameCountAmountArray(rmItemIndex);
 
 		eraseText();
 
@@ -185,7 +212,6 @@ function removeItem()
 		
     	setBillItems();
     	showInBillDisplay();
-    	itemIndex--;
     	return true;
 	}
 }

@@ -1,0 +1,45 @@
+<!-- AnimalClinic - Billing and Inventory System -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Animal Clinic</title>
+		<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+	</head>
+	<body onload="loadInventoryItems()">
+		<div id="page-bar">
+			<div id="logo-and-name-area">
+				<h1 id="institution_name">Animal Clinic</h1>
+			</div>
+			<div id="pages-area">
+				<a id="page-names" href="./home.html">home</a>
+				<a id="page-names" href="./inventory.html">inventory</a>
+				<a id="page-names" href="./reports.html">reports</a>
+			</div>
+			<div id="logout-area">
+				<button type="button" id="buton-logout">Logout</button>
+			</div>
+		</div>
+
+		<div class="tab">
+		  <button class="tablinks" onclick="openTab(event, 'London')">Item Manager</button>
+		  <button class="tablinks" onclick="openTab(event, 'Paris')">Profile Settings</button>
+		  <button class="tablinks" onclick="openTab(event, 'Tokyo')">Billing Configuration</button>
+		</div>
+		<div id="London" class="tabcontent">
+		  <h3>London</h3>
+		  <p>London is the capital city of England.</p>
+		</div>
+		
+		<div id="Paris" class="tabcontent">
+		  <h3>Paris</h3>
+		  <p>Paris is the capital of France.</p>
+		</div>
+		
+		<div id="Tokyo" class="tabcontent">
+		  <h3>Tokyo</h3>
+		  <p>Tokyo is the capital of Japan.</p>
+		</div>
+		<!-- <script type="text/javascript" src="../scripts/on_load.js"></script> -->
+		<script type="text/javascript" src="../scripts/inventory.js"></script>
+	</body>
+</html>
