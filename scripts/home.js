@@ -31,7 +31,6 @@ function addToTheBill()
 		addToNameCountAmountArray(itemName, itemCount, itemAmount);
 
 		setBillItems();
-
 		showInBillDisplay();
 		return true;
 	}
@@ -45,6 +44,22 @@ function addToNameCountAmountArray(name, count, amount)
 	temp[2] = amount;
 	name_count_amount[itemIndex-1] = temp;
 	console.log("Name Count and Amount: " + name_count_amount); 
+}
+
+function removeFromNameCountAmountArray(rIndex)
+{
+	// temp = name_count_amount[rIndex-1];
+	// name_count_amount.splice(rIndex-1, 1);
+	// console.log("------------------- Name Count and Amount: " + name_count_amount[rIndex-1]); 
+
+	for(let x of name_count_amount)
+	{
+		console.log(x);
+	}
+
+	// deducting amount from the total
+	// billTotal = billTotal - 
+	// console.log("temp: " + temp);
 }
 
 function setItemEntryAreaClear()
@@ -64,7 +79,8 @@ function addItemsToBillArray(name, count, amount)
 	// creating the template
 	// let billTemplate = `<td width="5%">${itemIndex}</td><td width="80%">${name}</td><td width="5%">${count}</td><td width="10%">${amount}</td>`;
 	// let amountP2 = parseFloat(amount).toFixed(2);
-	let billTemplate = `${(itemIndex).toString().padEnd(5, "-")} ${(name).toString().padEnd(25, "-")} ${(count).toString().padEnd(8, "-")} ${(parseFloat(amount).toFixed(2)).toString().padEnd(12)}${"\n"}`;
+	// let billTemplate = `${(itemIndex).toString().padEnd(5, "-")} ${(name).toString().padEnd(25, "-")} ${(count).toString().padEnd(8, "-")} ${(parseFloat(amount).toFixed(2)).toString().padEnd(12)}${"\n"}`;
+	let billTemplate = `${(name).toString().padEnd(25, "-")} ${(count).toString().padEnd(8, "-")} ${(parseFloat(amount).toFixed(2)).toString().padEnd(12)}${"\n"}`;
 	billItemArr[itemIndex-1] = billTemplate;
 }
 
@@ -76,9 +92,12 @@ function setBillItems()
 	let billFooter = `\n${("Bill Total").padStart(31)} --- ${(parseFloat(billTotal).toFixed(2)).toString()}\n\n-- ${dateTime} --\nBy NextGEN-Labs - SriLanka`;
 	
 	let bill = "";
+	let count = 0;
+	let temp = `${(count).toString().padEnd(5, "-")}`;
 	for(let x of billItemArr)
 	{
-		bill += x;
+		count += 1;
+		bill += `${(count).toString().padEnd(5, "-")}` + x;
 	}
 
 	lastBill = billHeader + bill + billFooter;
@@ -94,18 +113,18 @@ function clearItemEntry()
 function eraseText() 
 {
     document.getElementById("bill-table-div").value = "";
-    itemIndex = 0;
-    while(billItemArr.length > 0) 
-    {
-	    billItemArr.pop();
-	}
+ //    itemIndex = 0;
+ //    while(billItemArr.length > 0) 
+ //    {
+	//     billItemArr.pop();
+	// }
 
-	while(name_count_amount.length > 0) 
-    {
-	    name_count_amount.pop();
-	}
+	// while(name_count_amount.length > 0) 
+ //    {
+	//     name_count_amount.pop();
+	// }
 	
-    console.log(billItemArr + " - " + name_count_amount)
+ //    console.log(billItemArr + " - " + name_count_amount)
 }
 
 function printBill()
@@ -141,37 +160,26 @@ function removeItem()
 	let b = "";
 	let c = "";
 	let countTemp = 0;
-	console.log(rmItemIndex);
+	console.log("##### rmItemIndex: " + rmItemIndex);
 
-	if(itemIndex < rmItemIndex)
+	if(itemIndex < rmItemIndex || rmItemIndex < 1 || Number.isNaN(rmItemIndex))
 	{
 		alert("No such item in the list");
 		return false;
 	}
 	else
 	{
-		// billItemArr.splice(rmItemIndex-1, 1);
+		console.log("billItemArr[rmItemIndex-1]: " + billItemArr[rmItemIndex-1]);
+		billItemArr.splice(rmItemIndex-1, 1);
+		console.log("name_count_amount[rmItemIndex-1]: " + name_count_amount[rmItemIndex-1]);
 		name_count_amount.splice(rmItemIndex-1, 1);
+		removeFromNameCountAmountArray(rmItemIndex);
 
 		eraseText();
 
 		for(let x of name_count_amount)
 		{
 			console.log(x);
-			// if(countTemp%3 == 0)
-			// {
-			// 	a = x;
-			// }
-			// else if(countTemp%3 == 1)
-			// {
-			// 	b = x;
-			// }
-			// else
-			// {
-			// 	c = x;
-			// 	addItemsToBillArray(a, b, c);
-			// 	console.log(a + " " + b + " " + c);
-			// }
 			countTemp++;
 		}
 		

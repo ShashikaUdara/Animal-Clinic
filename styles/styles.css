@@ -20,7 +20,7 @@ html, body
 
 #logo-and-name-area
 {
-	border: 3px solid #000000;
+	/*border: 3px solid #000000;*/
 	width: 21%;
 	height: 80%;
 	margin: 7px;
@@ -37,7 +37,7 @@ html, body
 
 #pages-area
 {
-	border: 3px solid #000000;
+	/*border: 3px solid #000000;*/
 	width: 55%;
 	height: 80%;
 	margin: 7px;
@@ -58,7 +58,7 @@ html, body
 
 #logout-area
 {
-	border: 3px solid #000000;
+	/*border: 3px solid #000000;*/
 	width: 20%;
 	height: 80%;
 	margin: 7px;
@@ -88,12 +88,12 @@ html, body
 {
 	border: 3px solid #000000;
 	width: 40%;
-	height: 90%;
-	margin: 10px;
+	height: 80%;
+	margin: 2%;
 	float: left;
 }
 
-#bill-number-area
+/*#bill-number-area
 {
 	border: 3px solid #000000;
 	width: 96%;
@@ -102,10 +102,10 @@ html, body
 	float: left;
 	text-align: center;
 }
-
+*/
 #bill-area
 {
-	border: 3px solid #000000;
+	/*border: 3px solid #000000;*/
 	width: 96%;
 	height: 84%;
 	margin: 2%;
@@ -113,7 +113,7 @@ html, body
 }
 
 table, th, td {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   border-collapse: collapse;
   padding: 20px;
   height: 20px;
@@ -133,8 +133,8 @@ table, th, td {
 
 #item-panel
 {
-	border: 3px solid #000000;
-	width: 56%;
+	/*border: 3px solid #000000;*/
+	width: 53%;
 	height: 90%;
 	margin: 10px;
 	float: left;
@@ -151,7 +151,7 @@ table, th, td {
 
 #item-inventory-area
 {
-	border: 3px solid #000000;
+	/*border: 3px solid #000000;*/
 	width: 96%;
 	height: 67%;
 	margin: 2%;
@@ -184,7 +184,7 @@ table, th, td {
 
 #item-button-area
 {
-	border: 3px solid #000000;
+	/*border: 3px solid #000000;*/
 	width: 96%;
 	height: 21%;
 	margin: 2%;
