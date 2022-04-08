@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Animal Clinic</title>
-		<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+		<link rel="stylesheet" type="text/css" href="../styles/inventory_styles.css">
 	</head>
 	<body onload="loadInventoryItems()">
 		<div id="page-bar">
@@ -21,23 +21,23 @@
 		</div>
 
 		<div class="tab">
-		  <button class="tablinks" onclick="openTab(event, 'London')">Item Manager</button>
-		  <button class="tablinks" onclick="openTab(event, 'Paris')">Profile Settings</button>
-		  <button class="tablinks" onclick="openTab(event, 'Tokyo')">Billing Configuration</button>
+		  <button class="tablinks" onclick="openTab(event, 'ItemMngr')">Item Manager</button>
+		  <button class="tablinks" onclick="openTab(event, 'ProfSett')">Profile Settings</button>
+		  <button class="tablinks" onclick="openTab(event, 'BillConf')">Billing Configuration</button>
 		</div>
-		<div id="London" class="tabcontent">
-		  <h3>London</h3>
-		  <p>London is the capital city of England.</p>
-		</div>
-		
-		<div id="Paris" class="tabcontent">
-		  <h3>Paris</h3>
-		  <p>Paris is the capital of France.</p>
+		<div id="ItemMngr" class="tabcontent">
+		  <h3>Item Manager</h3>
+		  <p>Items will managed here.</p>
 		</div>
 		
-		<div id="Tokyo" class="tabcontent">
-		  <h3>Tokyo</h3>
-		  <p>Tokyo is the capital of Japan.</p>
+		<div id="ProfSett" class="tabcontent">
+		  <h3>Profile Settings</h3>
+		  <p>Profile Settings are here.</p>
+		</div>
+		
+		<div id="BillConf" class="tabcontent">
+		  <h3>Billing Configuration</h3>
+		  <p>Billing Configuration are here.</p>
 		</div>
 		<!-- <script type="text/javascript" src="../scripts/on_load.js"></script> -->
 		<script type="text/javascript" src="../scripts/inventory.js"></script>
